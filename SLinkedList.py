@@ -13,7 +13,7 @@ class SLinkedList:
     """
     def __init__(self):
         """
-        This is the constructor.  It is used to create a new instance of LinkedList.
+        This is the constructor.  It is used to create a new instance of SLinkedList.
 
         Ref: https://www.geeksforgeeks.org/constructors-in-python/
         """
@@ -22,11 +22,11 @@ class SLinkedList:
 
     def append(self, val):
         """
-        Purpose: Given a value, appends the value to the RIGHT side of the LinkedList
+        Purpose: Given a value, appends the value to the RIGHT side of the SLinkedList
         Signature: append :: val (AnyVal) => SLinkedList
         Example: 1 -> 2 :: append(3) => 1 -> 2 -> 3
         :param val: AnyVal (Any type of value -> Int, String, Bool, etc)
-        :return: LinkedList
+        :return: SLinkedList
         """
         new_node = Node(val)
         if self.size == 0:
@@ -52,12 +52,11 @@ class SLinkedList:
 
     def remove(self, val):
         """
-        Purpose: Given a value, removes the value from the LinkedList
+        Purpose: Given a value, removes the first value from the SLinkedList
         Signature: remove :: val (AnyVal) => SLinkedList
         Example: 1 -> 2 -> 3 :: remove(2) => 1 -> 3
-        :param val: A value of any time (AnyVal)
-        :return: LinkedList
-        :param val: AnyVal
+        Example: 1 -> 2 -> 3 -> 2 :: remove(2) => 1 -> 3 -> 2
+        :param val: A value of any type (AnyVal)
         :return: SLinkedList
         """
         head = self.head
@@ -83,19 +82,19 @@ class SLinkedList:
         self.size -= 1
         return self
 
-    def get_at(self, val):
+    def get_at(self, index):
         """
         Purpose: Given an index, gets the value at the index from the LinkedList
-        Signature: get :: val (AnyVal) => val (AnyVal)
-        Example: 1 -> 2 -> 3 :: get(2) => 2
-        :param val: AnyVal
-        :return: SLinkedList
+        Signature: get :: index (integers) => index (AnyVal)
+        Example: 1 -> 2 -> 3 :: get(1) => 2
+        :param index: Int
+        :return: AnyVal
         """
         head = self.head
         index = 0
 
         try:
-            while index != val:
+            while index != index:
                 head = head.next
                 index += 1
 
@@ -112,7 +111,7 @@ class SLinkedList:
         Signature: get :: val (AnyVal) => val (AnyVal)
         Example: 1 -> 2 -> 3 :: get(2) => 2
         :param val: AnyVal
-        :return: SLinkedList
+        :return: AnyVal
         """
         head = self.head
 
@@ -156,8 +155,8 @@ class SLinkedList:
         Purpose: Given an index, removes the value at that index
         Signature: remove_at :: Int => SLinkedList
         Example: 1 -> 2 -> 3 :: remove_at(1) => 1 -> 3
-        :param val:
-        :return:
+        :param val: Int
+        :return: SLinkedList
         """
         self._print()
         return self
@@ -165,9 +164,10 @@ class SLinkedList:
     def push(self, val):
         """
         Purpose: Given a value, adds the value to the LEFT side of the SLinkedList
-        #todo
-        :param val:
-        :return:
+        Signature: push :: val (AnyVal) => SLinkedList
+        Example: 1 -> 2 -> 3 :: push(0) => 0 -> 1 -> 2 -> 3
+        :param val: AnyVal (Any type of value -> Int, String, Bool, etc)
+        :return: SLinkedList
         """
 
         self._print()
@@ -177,9 +177,9 @@ class SLinkedList:
     def pop(self):
         """
         Purpose: Removes a value from the LEFT side of the SLinkedList
-        #todo
-        :param val:
-        :return:
+        Signature: pop :: () => SLinkedList
+        Example: 1 -> 2 -> 3 :: pop(1) => 2 -> 3
+        :return: SLinkedList
         """
 
         self._print()
@@ -189,9 +189,10 @@ class SLinkedList:
     def enqueue(self, val):
         """
         Purpose: Given a value, adds the value to the RIGHT side of the SLinkedList
-        #todo
-        :param val:
-        :return:
+        Signature: enqueue :: val (AnyVal) => SLinkedList
+        Example: 1 -> 2 :: enqueue(3) => 1 -> 2 -> 3
+        :param val: AnyVal (Any type of value -> Int, String, Bool, etc)
+        :return: SLinkedList
         """
 
         self._print()
@@ -201,9 +202,9 @@ class SLinkedList:
     def dequeue(self):
         """
         Purpose: Removes a value from the RIGHT side of the SLinkedList
-        #todo
-        :param val:
-        :return:
+        Signature: dequeue :: () => SLinkedList
+        Example: 1 -> 2 -> 3 :: dequeue(1) => 1 -> 2
+        :return: SLinkedList
         """
 
         self._print()

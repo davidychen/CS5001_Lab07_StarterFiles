@@ -1,10 +1,12 @@
 class SArrayList:
     """
-
+    Represents a ArrayList.  The ArrayList is composed with the currentIndex and its data list
     """
     def __init__(self):
         """
+        This is the constructor.  It is used to create a new instance of SLinkedList.
 
+        Ref: https://www.geeksforgeeks.org/constructors-in-python/
         """
         self.currentIndex = 0
         self.data = []
@@ -13,10 +15,8 @@ class SArrayList:
         """
         Purpose: Given a value, appends the value to the RIGHT side of the SArrayList
         Signature: append :: val (AnyVal) => SArrayList
-        Example: [1, 2] :: append(3) => 1 -> 2 -> 3
+        Example: [1, 2] :: append(3) => [1, 2, 3]
         :param val: AnyVal (Any type of value -> Int, String, Bool, etc)
-        :return: SArrayList
-        :param val: AnyVal
         :return: SArrayList
         """
         self.currentIndex += 1
@@ -26,9 +26,10 @@ class SArrayList:
 
     def remove(self, val):
         """
-        Purpose: Given a value, removes the value from the SArrayList
+        Purpose: Given a value, removes the first value from the SArrayList
         Signature: remove :: val (AnyVal) => SArrayList
         Example: [1, 2, 3] :: remove(2) => [1, 3]
+        Example: [1, 2, 3, 2] :: remove(2) => [1, 3, 2]
         :param val: AnyVal
         :return: SArrayList
         """
@@ -54,19 +55,17 @@ class SArrayList:
         Purpose: Prints the SArrayList
         Signature: _print :: () => Void
         Example: [1, 2, 3] :: _print() => print([1, 2, 3])
-        :return:
+        :return: Void
         """
         print(self.data)
 
     def getAt(self, index):
         """
         Purpose: Given an index, gets the value at the SArrayList
-        Signature: getAt :: val (AnyVal) => val (AnyVal)
+        Signature: getAt :: val (Int) => val (AnyVal)
         Example: [1, 2, 3] :: get(1) => 2
-        :param index: AnyVal
-        :return: SLinkedList
-        :param val: AnyVal
-        :return:
+        :param index: Int
+        :return: AnyVal
         """
         try:
             print(self.data[index])
@@ -74,22 +73,20 @@ class SArrayList:
         except IndexError:
             print("Index provided was too large. Given:" + str(index) + ". Size: " + str(self._size()))
 
-    def get(self, index):
+    def get(self, val):
         """
         Purpose: Given an value, gets the value at the SArrayList
-        Signature: getAt :: val (AnyVal) => val (AnyVal)
+        Signature: get :: val (AnyVal) => val (AnyVal)
         Example: [1, 2, 3] :: get(2) => 2
-        :param index: AnyVal
-        :return: SLinkedList
         :param val: AnyVal
-        :return:
+        :return: AnyVal
         """
-        if self.data.count(index) == 0 or self._size() == 0:
+        if self.data.count(val) == 0 or self._size() == 0:
             print("Not Found")
             return None
         else:
             for item in self.data:
-                if item is index:
+                if item is val:
                     return item
 
     def _size(self):
@@ -97,7 +94,7 @@ class SArrayList:
         Purpose: Returns the size of the SArrayList
         Signature: size :: () => Int
         Example: [1, 2, 3] :: size() => 3
-        :return:
+        :return: Int
         """
         print(len(self.data))
         return len(self.data)
@@ -108,8 +105,8 @@ class SArrayList:
         Purpose: Given an index, removes the value at that index
         Signature: remove_at :: Int => SArrayList
         Example: [1, 2, 3] :: remove_at(1) => [1,  3]
-        :param val:
-        :return:
+        :param val: Int
+        :return: SArrayList
         """
         self._print()
         return self
@@ -117,8 +114,10 @@ class SArrayList:
     def push(self, val):
         """
         Purpose: Given a value, adds the value to the LEFT side of the SArrayList
-        :param val:
-        :return:
+        Signature: push :: val (AnyVal) => SArrayList
+        Example: [1, 2, 3] :: push(0) => [0, 1, 2, 3]
+        :param val: AnyVal (Any type of value -> Int, String, Bool, etc)
+        :return: SArrayList
         """
         self._print()
         return self.data
@@ -127,8 +126,9 @@ class SArrayList:
     def pop(self):
         """
         Purpose: Removes a value from the LEFT side of the SArrayList
-        :param val:
-        :return:
+        Signature: pop :: () => SArrayList
+        Example: [1, 2, 3] :: pop(1) => [2, 3]
+        :return: SArrayList
         """
         self._print()
         return self.data
@@ -137,8 +137,10 @@ class SArrayList:
     def enqueue(self, val):
         """
         Purpose: Given a value, adds the value to the RIGHT side of the SArrayList
-        :param val:
-        :return:
+        Signature: enqueue :: val (AnyVal) => SArrayList
+        Example: [1, 2] :: enqueue(3) => [1, 2, 3]
+        :param val: AnyVal (Any type of value -> Int, String, Bool, etc)
+        :return: SArrayList
         """
         self._print()
         return self.data
@@ -147,8 +149,9 @@ class SArrayList:
     def dequeue(self):
         """
         Purpose: Removes a value from the RIGHT side of the SArrayList
-        :param val:
-        :return:
+        Signature: dequeue :: () => SArrayList
+        Example: [1, 2, 3] :: dequeue(1) => [1, 2]
+        :return: SArrayList
         """
         self._print()
         return self.data
